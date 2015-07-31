@@ -39,6 +39,20 @@ $ bin/rake start
 ## Stop is Ctrl+C
 ```
 
+Or, with Debian 8.0 (Jessie):
+
+```
+$ sudo apt-get install -y ruby2.2 libssl1.0.0 libncurses5 libreadline6 libtinfo5 libyaml-0-2 zlib1g build-essential git
+$ sudo gem install bundler --no-rdoc --no-ri
+$ git clone https://github.com/plathome/pd-emitter.git /pd-emitter/deploy/dir
+$ cd /pd-emitter/deploy/dir
+$ bundle install --without development --path vendor/bundle
+$ bin/rake start
+## Stop is Ctrl+C
+```
+
+To test whether the server accept emissions or not, use `socat` to test as follows:
+
 ```
 ## In other terminal ...
 $ sudo apt-get install -y socat
@@ -117,4 +131,3 @@ e.g.)
 ```
 
 [EoT]
-
