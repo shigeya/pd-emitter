@@ -1,11 +1,16 @@
 #!/bin/bash
 # vim: ft=ruby
 RUBY_VERSION=2.2.2
+RUBY="/opt/pd/ruby/versions/${RUBY_VERSION}/bin/ruby"
 
-RUBY="$(which ruby)"
-if [ $? -ne 0 ]; then
-   	RUBY="/opt/pd/ruby/versions/${RUBY_VERSION}/bin/ruby"
-fi
+for r in ruby ruby2.1
+do
+    RUBY_WHICH="$(which $r)"
+    if [ $? -eq 0 ]; then
+        RUBY=$RUBY_WHICH
+    fi
+done
+
 exec $RUBY -S -x "$0" "$@"
 #!ruby
 require 'pathname'
